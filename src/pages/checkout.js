@@ -5,7 +5,10 @@ function Checkout() {
     <div className="bg-gray-100">
       <Header />
 
-      salom
+      <main className="lg:flex max-w-screen-2xl mx-auto">
+    
+      </main>
+
     </div>
   );
 }
