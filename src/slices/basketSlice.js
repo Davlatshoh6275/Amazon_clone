@@ -17,16 +17,15 @@ export const basketSlice = createSlice({
         (baskedItem) => baskedItem.id === action.payload.id
       );
 
-      let newBasked = [...state.items]
+      let newBasked = [...state.items];
 
-      if(index >= 0) {
+      if (index >= 0) {
         // The item exists in the basked... remove it...
-        newBasked.splice(index, 1)
+        newBasked.splice(index, 1);
       } else {
         console.warn(
-
           `Cant remove product (id: ${action.payload.id} as its not in the basket)`
-        )
+        );
       }
 
       state.items = newBasked;
@@ -38,5 +37,7 @@ export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
 // Selectors - This is how we pull information from the Global store slice
 export const selectItems = (state) => state.basket.items;
+export const selecttotal = (state) =>
+  state.basket.items.reduce((total, item) => total + item.price, 0);
 
 export default basketSlice.reducer;
